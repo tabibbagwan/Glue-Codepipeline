@@ -14,7 +14,7 @@ job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
 # Read data directly from S3
-source_path = "s3://mycodepipelinebucket13/input/product_data.csv"
+source_path = "s3://meri-bucket123/input/indexProcessed.csv"
 df = glueContext.create_dynamic_frame.from_options(
     connection_type="s3",
     format="csv",
@@ -25,7 +25,7 @@ df = glueContext.create_dynamic_frame.from_options(
 
 
 # Convert to JSON format
-json_path = "s3://mycodepipelinebucket13/output/target-data.json"
+json_path = "s3://meri-bucket123/output/"
 glueContext.write_dynamic_frame.from_options(
     frame=df,
     connection_type="s3",
